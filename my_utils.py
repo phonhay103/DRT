@@ -10,7 +10,7 @@ import cv2
 ### a function that convert network outputs into 8 bit image data
 def output_to_image(target_data, output_data, input_data, 
                     plot_img = True, output_8_bit = True, save_img = False,
-                    save_dir = 'Results/Snow100K-L/', save_index = 0):
+                    save_dir = 'Results/', save_index = 0):
     output_data = output_data[0] #discard the batch dimension
     target_data = target_data[0]
     input_data = input_data[0]

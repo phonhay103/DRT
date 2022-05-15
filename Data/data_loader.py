@@ -146,7 +146,7 @@ class Rain800TrainData(Dataset):
 		return test_img, train_img
 
 
-### loading test100 validation dataset
+### loading Test dataset
 class Rain800ValData(Dataset):
 	def __init__(self, dataset_dir='/Rain-800/', syn=False):
 		self.img_transforms = self.build_transform()
@@ -166,14 +166,14 @@ class Rain800ValData(Dataset):
 			self.testset_name = 'Rain100L'
 			self.dataset_size = 200
 			self.dataset_dir = dir_name + dataset_dir
-		elif dataset_dir == "/Test-HiNet/Rain100L/":
+		elif dataset_dir == "/Test-HiNet/Rain100L/": # HiNet
 			print("Comparing with Hi-Net on Rain100L")
-			self.testset_name = 'Hi-Net-Rain100L'
+			self.testset_name = 'HiNet'
 			self.dataset_size = 100
 			self.dataset_dir = dir_name + dataset_dir
-		elif dataset_dir == '/Test-HiNet/Rain100H/':
+		elif dataset_dir == '/Test-HiNet/Rain100H/': # HiNet
 			print("Comparing with Hi-Net on Rain100H")
-			self.testset_name = 'Hi-Net-Rain100H'
+			self.testset_name = 'HiNet'
 			self.dataset_size = 100
 			self.dataset_dir = dir_name + dataset_dir
 		elif dataset_dir == '/Snow100K-L/':
@@ -196,12 +196,21 @@ class Rain800ValData(Dataset):
 			self.testset_name = 'TimeTest'
 			self.dataset_size = 1
 			self.dataset_dir = dir_name + dataset_dir
-		elif dataset_dir == '/Test-HiNet/Test100/':
+		elif dataset_dir == '/Test-HiNet/Test100/': # HiNet
 			print("Loading Test100 from Hi-Net Data")
-			self.testset_name = 'HiNet-Test100'
+			self.testset_name = 'HiNet'
 			self.dataset_size = 98
 			self.dataset_dir = dir_name + dataset_dir
-
+		elif dataset_dir == '/Test-HiNet/Test1200/': # HiNet
+			print("Loading Test1200 from Hi-Net Data")
+			self.testset_name = 'HiNet'
+			self.dataset_size = 1200
+			self.dataset_dir = dir_name + dataset_dir
+		elif dataset_dir == '/Test-HiNet/Test2800/': # HiNet
+			print("Loading Test2800 from Hi-Net Data")
+			self.testset_name = 'HiNet-Test2800'
+			self.dataset_size = 2800
+			self.dataset_dir = dir_name + dataset_dir
 
 
 	#image transform
@@ -216,7 +225,7 @@ class Rain800ValData(Dataset):
 	def __getitem__(self, index):
 		
 		snow_test_names = ['Snow100K-L', 'Snow100K-M', 'Snow100K-S']
-		if self.testset_name not in snow_test_names: 
+		if self.testset_name not in snow_test_names:
 			index += 1 #since our name starts at 1 but index starts at 0
 
 		train_data = None
@@ -238,16 +247,16 @@ class Rain800ValData(Dataset):
 			test_img = Image.open(test_img_dir)
 			train_data = np.asarray(train_img)
 			test_data = np.asarray(test_img)
-		elif self.testset_name == 'Hi-Net-Rain100L':
+		elif self.testset_name == 'HiNet':
 			train_img_dir = self.dataset_dir+'input/'+str(index)+'.png'
 			test_img_dir = self.dataset_dir+'target/'+str(index)+'.png'
 			train_img = Image.open(train_img_dir)
 			test_img = Image.open(test_img_dir)
 			train_data = np.asarray(train_img)
 			test_data = np.asarray(test_img)
-		elif self.testset_name == 'Hi-Net-Rain100H':
-			train_img_dir = self.dataset_dir+'input/'+str(index)+'.png'
-			test_img_dir = self.dataset_dir+'target/'+str(index)+'.png'
+		elif self.testset_name == 'HiNet-Test2800':
+			train_img_dir = self.dataset_dir+'input/'+str(index)+'.jpg'
+			test_img_dir = self.dataset_dir+'target/'+str(index)+'.jpg'
 			train_img = Image.open(train_img_dir)
 			test_img = Image.open(test_img_dir)
 			train_data = np.asarray(train_img)
@@ -264,13 +273,6 @@ class Rain800ValData(Dataset):
 			img = Image.open(img_dir)
 			img = self.img_transforms(img)
 			return img, img 
-		elif self.testset_name == 'HiNet-Test100':
-			train_img_dir = self.dataset_dir+'input/'+str(index)+'.png'
-			test_img_dir = self.dataset_dir+'target/'+str(index)+'.png'
-			train_img = Image.open(train_img_dir)
-			test_img = Image.open(test_img_dir)
-			train_data = np.asarray(train_img)
-			test_data = np.asarray(test_img)
 
 		#make PyTorch happy, it accepts PIL image only
 		train_img = Image.fromarray(train_data)
