@@ -7,7 +7,6 @@
 
 import torch
 import torch.nn as nn
-import torch.utils.checkpoint as checkpoint
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 
 
