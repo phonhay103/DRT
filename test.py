@@ -91,8 +91,8 @@ parser.add_argument('--residual_depth', type=int, default=3)
 parser.add_argument('--recursive_depth', type=int, default=6)
 parser.add_argument('--ckp_path', type=str, default='./pretrained/best_model.pt')
 parser.add_argument('--device', type=str, default='cuda') # 'cpu'
-parser.add_argument('--in_path', type=str, default='./datasets/Test-HiNet/Rain100H/input/')
-parser.add_argument('--out_path', type=str, default='./datasets/Test-HiNet/Rain100H/output/')
+parser.add_argument('--in_path', type=str, default='datasets/Test-HiNet/Rain100H/input')
+parser.add_argument('--out_path', type=str, default='datasets/Test-HiNet/Rain100H/output')
 
 args = parser.parse_args()
 main(args)
