@@ -10,7 +10,7 @@ python test.py
 ```
 or
 ```
-python test.py --weights <model_weights> --input_dir <input_path> --result_dir <result_path>
+python test.py --ckp_path <model_path> --in_path <input_folder> --out_path <results_path>
 ```
 
 <!--
