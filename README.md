@@ -6,12 +6,8 @@ The project was developed using python 3 with the following packages.
 - Pytorch Image Models
 - Pillow
 
-Installation pytorch:
-```bash
-pytorch.org/get-started/locally
-```
-
-Installation with pip:
+1. Install [Pytorch](pytorch.org/get-started/locally):
+2. Install with pip:
 ```bash
 pip install -r requirements.txt
 ```
@@ -21,11 +17,11 @@ pip install -r requirements.txt
 - Place it in `datasets`
 
 ## Evaluation
-```
+```bash
 python test.py
 ```
 or
-```
+```bash
 python test.py --ckp_path <model_path> --in_path <input_folder> --out_path <results_path>
 ```
 
