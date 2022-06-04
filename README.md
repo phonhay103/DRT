@@ -1,8 +1,6 @@
-# DRT: A Lightweight Single Image Deraining Recursive Transformer
-By Yuanchu Liang, Saeed Anwar, Yang Liu
-College of Engineering and Computer Science, The Australian National University
-
-![DRT Network Architecture](https://github.com/YC-Liang/DRT/blob/main/Images/Network.png)
+## Datasets
+- Rain 13k - Test: [Here](https://drive.google.com/drive/folders/1PDWggNh8ylevFmrjo-JEvlmqsDlWWvZs)
+- Place it in `datasets`
 
 ## Evaluation
 ```
