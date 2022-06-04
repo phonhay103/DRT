@@ -1,3 +1,21 @@
+## Pre-requisites
+The project was developed using python 3 with the following packages.
+- Pytorch
+- Opencv
+- Numpy
+- Pytorch Image Models
+- Pillow
+
+Installation pytorch:
+```bash
+pytorch.org/get-started/locally
+```
+
+Installation with pip:
+```bash
+pip install -r requirements.txt
+```
+
 ## Datasets
 - Rain 13k - Test: [Here](https://drive.google.com/drive/folders/1PDWggNh8ylevFmrjo-JEvlmqsDlWWvZs)
 - Place it in `datasets`
