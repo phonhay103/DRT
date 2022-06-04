@@ -6,7 +6,7 @@ The project was developed using python 3 with the following packages.
 - Pytorch Image Models
 - Pillow
 
-1. Install [Pytorch](pytorch.org/get-started/locally):
+1. Install [Pytorch](https://pytorch.org/get-started/locally/)
 2. Install with pip:
 ```bash
 pip install -r requirements.txt
