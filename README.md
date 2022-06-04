@@ -15,32 +15,18 @@ The paper has been accepeted by [NTIRE2022](https://data.vision.ee.ethz.ch/cvl/n
 ![DRT Network Architecture](https://github.com/YC-Liang/DRT/blob/main/Images/Network.png)
 
 ### Running
-**Installations**</br>
-*Note the script is tested on Ubuntu 20.04 && Windows 10 21H2*.
-* Download `Python3`, script was ran by `Python 3.7.11`
-* Install `cuda >= 10.1` with `cudnn >= 7`.
-* Install `PyTorch >= 1.7.1` with `torchvision >= 0.8.2`
-* Install `timm >= 0.3.2`
-* Install `torch-summary >= 0.8.2`
-
-**Data Sets**</br>
-*Training*: download the following data sets and unzip into the `Data` folder </br>
-* `Rain800`: [click here](https://github.com/hezhangsprinter/DID-MDN).
-* `Rain100L-Train`: [click here](https://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html)
-* `Rain100H-Train`: [click here](https://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html)
-* `Snow100K-training`: [click here](https://sites.google.com/view/yunfuliu/desnownet)
-
-*Testing*: inside the `Data` folder, run `mkdir Test-HiNet`. 
-* Unzip `Rain800`, `Rain100L` and `Rain100H` into the `Test-HiNet` folder: [click here](https://github.com/megvii-model/HINet)
-* Unzip `Snow100K-testset` into the `Data` folder: [click here](https://sites.google.com/view/yunfuliu/desnownet)
-
-**Running Instructions**</br>
-To evaluate, change the evaluate folder directory in the `Load Data` section and set the last line of the notebook to </br>
-* `run(train_net = False, loadCkp = True, loadBest = True, new_dataset = False)` </br>
-
+**Evaluation** </br>
+```
+python test.py
+```
+or
+```
+python test.py --weights <model_weights> --input_dir <input_path> --result_dir <result_path>
+```
+<!--
 To train from scratch, change the training directory in the `Load Data` section and set the last line of the notebook to
 * `run(train_net = True, loadCkp = False, loadBest = False, new_dataset = False)`
-
+-->
 ### Results
 **Quantitative Results**
 ![PSNR and SSIM Results on Three Data Sets](https://github.com/phonhay103/DRT/blob/main/Images/PSNR_and_SSIM.png)
