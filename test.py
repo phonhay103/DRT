@@ -1,8 +1,7 @@
 import torch
 import torch.cuda as cuda
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
-from torch.utils.data import DataLoader
 
 import numpy as np
 import argparse
